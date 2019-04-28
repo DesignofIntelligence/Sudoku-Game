@@ -40,58 +40,49 @@ class game extends BorderPane {
         play.setTextFill(Color.RED);
         play.setPrefSize(200, 20);
         play.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
-        play.setOnAction( 
-                e ->
-                {
-                System.out.println("play button clicked");
-                game1 gm1 = new game1();
-                Scene sc1 = new Scene(gm1, 500, 500);
-                Stage s = new Stage();
-                s.setScene(sc1);
-                s.setTitle("Sudoku");
-                s.sizeToScene();
-                s.show();
-                s.setResizable(true);
-                }
-                        );
-        
+        play.setOnAction(
+                e
+                -> {
+            System.out.println("play button clicked");
+            game1 gm1 = new game1();
+            Scene sc1 = new Scene(gm1, 500, 500);
+            Sudoku.getStage().setScene(sc1);
+        }
+        );
+
         Button settings = new Button("SETTINGS");
         settings.setTextFill(Color.RED);
         settings.setPrefSize(200, 20);
         settings.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
         settings.setOnAction(
-            e ->
-            {   System.out.println("settings button clicked");
-                settingss st = new settingss();
-                Scene sc3 = new Scene (st,500,500);
-                Stage s = new Stage();
-                s.setScene(sc3);
-                s.setTitle("Settings");
-                s.sizeToScene();
-                s.show();
-                s.setResizable(true);
-            }
-                    );
-        
+                e
+                -> {
+            System.out.println("settings button clicked");
+            settingss st = new settingss();
+            Scene sc3 = new Scene(st, 500, 500);
+            Sudoku.getStage().setScene(sc3);
+        }
+        );
+
         Button exit = new Button("EXIT");
         exit.setTextFill(Color.RED);
         exit.setPrefSize(200, 20);
         exit.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
         exit.setOnAction(
-        e -> 
-            {
-                System.out.println("exit button clicked");
-            }
-                    );
-        options1.getChildren().addAll(play,settings,exit);
+                e
+                -> {
+            System.out.println("exit button clicked");
+        }
+        );
+        options1.getChildren().addAll(play, settings, exit);
 //..............................................................
     }
 }
 //-----------------------------------------------------------------
 
-class settingss extends BorderPane{
-    
-    public settingss(){
+class settingss extends BorderPane {
+
+    public settingss() {
         VBox back1 = new VBox();
         this.setBottom(back1);
         back1.setPadding(new Insets(0, 0, 100, 0));
@@ -101,22 +92,16 @@ class settingss extends BorderPane{
         back.setPrefSize(200, 20);
         back.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
         back.setOnAction(
-        e ->
-            {
-                System.out.println("back1 button clicked");
-                game gm = new game();
-                Scene sc = new Scene(gm, 500, 500);
-                Stage s = new Stage();
-                s.setScene(sc);
-                s.setTitle("Sudoku");
-                s.sizeToScene();
-                s.show();
-                s.setResizable(true);
-            }
-                        );
-            back1.getChildren().add(back);
-
-}
+                e
+                -> {
+            System.out.println("back1 button clicked");
+            game gm = new game();
+            Scene sc = new Scene(gm, 500, 500);
+            Sudoku.getStage().setScene(sc);
+        }
+        );
+        back1.getChildren().add(back);
+    }
 }
 //-----------------------------------------------------------------
 
@@ -142,43 +127,34 @@ class game1 extends BorderPane {
         standard.setPrefSize(200, 20);
         standard.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
         standard.setOnAction(
-            e ->
-            {
-                System.out.println("standard button clicked");
-                game2 gm2 = new game2();
-                Scene sc2 = new Scene(gm2, 500, 500);
-                Stage s = new Stage();
-                s.setScene(sc2);
-                s.setTitle("Sudoku");
-                s.sizeToScene();
-                s.show();
-                s.setResizable(true);
-            }
-                            );
+                e
+                -> {
+            System.out.println("standard button clicked");
+            game2 gm2 = new game2();
+            Scene sc2 = new Scene(gm2, 500, 500);
+            Stage s = new Stage();
+            Sudoku.getStage().setScene(sc2);
+        }
+        );
         Button timetrial = new Button("TIME TRIAL");
         timetrial.setTextFill(Color.RED);
         timetrial.setPrefSize(200, 20);
         timetrial.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
         timetrial.setOnAction(
-        e ->
-            {
-                System.out.println("time trial button clicked");
-                game2 gm2 = new game2();
-                Scene sc2 = new Scene(gm2, 500, 500);
-                Stage s = new Stage();
-                s.setScene(sc2);
-                s.setTitle("Sudoku");
-                s.sizeToScene();
-                s.show();
-                s.setResizable(true);
-
-            }
-                            );
+                e
+                -> {
+            System.out.println("time trial button clicked");
+            game2 gm2 = new game2();
+            Scene sc2 = new Scene(gm2, 500, 500);
+            Stage s = new Stage();
+            Sudoku.getStage().setScene(sc2);
+        }
+        );
         Label lbl = new Label("Please Choose a Game Mode");
         lbl.setStyle("-fx-background-color:null;");
         lbl.setTextFill(Color.BLUE);
         lbl.setFont(Font.font("Times New Roman", FontWeight.BOLD, 25));
-        options2.getChildren().addAll(lbl,standard,timetrial);
+        options2.getChildren().addAll(lbl, standard, timetrial);
 //..............................................................
         VBox back1 = new VBox();
         this.setBottom(back1);
@@ -189,19 +165,15 @@ class game1 extends BorderPane {
         back.setPrefSize(200, 20);
         back.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
         back.setOnAction(
-        e ->
-            {
-                System.out.println("back1 button clicked");
-                game gm = new game();
-                Scene sc = new Scene(gm, 500, 500);
-                Stage s = new Stage();
-                s.setScene(sc);
-                s.setTitle("Sudoku");
-                s.sizeToScene();
-                s.show();
-                s.setResizable(true);
-            }
-                        );
+                e
+                -> {
+            System.out.println("back1 button clicked");
+            game gm = new game();
+            Scene sc = new Scene(gm, 500, 500);
+            Stage s = new Stage();
+            Sudoku.getStage().setScene(sc);
+        }
+        );
         back1.getChildren().add(back);
 //..............................................................        
     }
@@ -230,62 +202,47 @@ class game2 extends BorderPane {
         easy.setPrefSize(200, 20);
         easy.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
         easy.setOnAction(
-        e ->
-            {
-                System.out.println("easy button clicked");
-                game3 gm3 = new game3();
-                Scene Sc3 = new Scene(gm3,500,500);
-                Stage s = new Stage();
-                s.setScene(Sc3);
-                s.setTitle("Sudoku");
-                s.sizeToScene();
-                s.show();
-                s.setResizable(true);
-            }
-                        );
-        
+                e
+                -> {
+            System.out.println("easy button clicked");
+            game3 gm3 = new game3();
+            Scene Sc3 = new Scene(gm3, 500, 500);
+            Sudoku.getStage().setScene(Sc3);
+        }
+        );
+
         Button medium = new Button("MEDIUM");
         medium.setTextFill(Color.RED);
         medium.setPrefSize(200, 20);
         medium.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
         medium.setOnAction(
-        e ->
-            {
-                System.out.println("medium button clicked");
-                game3 gm3 = new game3();
-                Scene Sc3 = new Scene(gm3,500,500);
-                Stage s = new Stage();
-                s.setScene(Sc3);
-                s.setTitle("Sudoku");
-                s.sizeToScene();
-                s.show();
-                s.setResizable(true);
-            }
-                        );
-        
+                e
+                -> {
+            System.out.println("medium button clicked");
+            game3 gm3 = new game3();
+            Scene Sc3 = new Scene(gm3, 500, 500);
+            Sudoku.getStage().setScene(Sc3);
+        }
+        );
+
         Button hard = new Button("HARD");
         hard.setTextFill(Color.RED);
         hard.setPrefSize(200, 20);
         hard.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
         hard.setOnAction(
-        e ->
-            {
-                System.out.println("hard button clicked");
-                game3 gm3 = new game3();
-                Scene Sc3 = new Scene(gm3,500,500);
-                Stage s = new Stage();
-                s.setScene(Sc3);
-                s.setTitle("Sudoku");
-                s.sizeToScene();
-                s.show();
-                s.setResizable(true);
-            }
-                        );
+                e
+                -> {
+            System.out.println("hard button clicked");
+            game3 gm3 = new game3();
+            Scene Sc3 = new Scene(gm3, 500, 500);
+            Sudoku.getStage().setScene(Sc3);
+        }
+        );
         Label lbl = new Label("Please select the difficulty");
         lbl.setStyle("-fx-background-color:null;");
         lbl.setTextFill(Color.BLUE);
         lbl.setFont(Font.font("Times New Roman", FontWeight.BOLD, 25));
-        options3.getChildren().addAll(lbl,easy,medium,hard);
+        options3.getChildren().addAll(lbl, easy, medium, hard);
 //..............................................................
         VBox back1 = new VBox();
         this.setBottom(back1);
@@ -296,86 +253,82 @@ class game2 extends BorderPane {
         back.setPrefSize(200, 20);
         back.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
         back.setOnAction(
-        e ->
-            {
-                System.out.println("back2 button clicked");
-                game1 gm1 = new game1();
-                Scene Sc1 = new Scene(gm1,500,500);
-                Stage s = new Stage();
-                s.setScene(Sc1);
-                s.setTitle("Sudoku");
-                s.sizeToScene();
-                s.show();
-                s.setResizable(true);
-
-            }
-                        );
+                e
+                -> {
+            System.out.println("back2 button clicked");
+            game1 gm1 = new game1();
+            Scene Sc1 = new Scene(gm1, 500, 500);
+            Sudoku.getStage().setScene(Sc1);
+        }
+        );
         back1.getChildren().add(back);
 //..............................................................
     }
 }
 //----------------------------------------------------------------
 
+class game3 extends BorderPane {
 
-class game3 extends BorderPane{
-    public game3(){
-    HBox hints = new HBox();
-    this.setBottom(hints);
-    hints.setPadding(new Insets(25,50,100,0));
-    hints.setAlignment(Pos.TOP_RIGHT);
-    hints.setSpacing(10);
-    
-    Button reset = new Button("RESET");
-    reset.setTextFill(Color.BLUE);
-    reset.setPrefSize(50,20);
-    reset.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
-    reset.setOnAction(
-    e ->
-        {
+    public game3() {
+        HBox hints = new HBox();
+        this.setBottom(hints);
+        hints.setPadding(new Insets(25, 50, 100, 0));
+        hints.setAlignment(Pos.TOP_RIGHT);
+        hints.setSpacing(10);
+
+        Button reset = new Button("RESET");
+        reset.setTextFill(Color.BLUE);
+        reset.setPrefSize(50, 20);
+        reset.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
+        reset.setOnAction(
+                e
+                -> {
             System.out.println("reset button clicked");
         }
-                    );
-    
-    Button hint = new Button("HINT");
-    hint.setTextFill(Color.BLUE);
-    hint.setPrefSize(50,20);
-    hint.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
-    hint.setOnAction(e ->
-        {
+        );
+
+        Button hint = new Button("HINT");
+        hint.setTextFill(Color.BLUE);
+        hint.setPrefSize(50, 20);
+        hint.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
+        hint.setOnAction(e
+                -> {
             System.out.println("hint button clicked");
         }
-    );
-    
-    Button back = new Button("Back");
-    back.setTextFill(Color.BLUE);
-    back.setPrefSize(50,20);
-    back.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
-    back.setOnAction(
-        e ->
-            {
-                System.out.println("back1 button clicked");
-                game gm = new game();
-                Scene sc = new Scene(gm, 500, 500);
-                Stage s = new Stage();
-                s.setScene(sc);
-                s.setTitle("Sudoku");
-                s.sizeToScene();
-                s.show();
-                s.setResizable(true);
-            }
-                    );
-    hints.getChildren().addAll(hint,reset,back);
-  //...............................................................
+        );
+
+        Button back = new Button("Back");
+        back.setTextFill(Color.BLUE);
+        back.setPrefSize(50, 20);
+        back.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
+        back.setOnAction(
+                e
+                -> {
+            System.out.println("back1 button clicked");
+            game gm = new game();
+            Scene sc = new Scene(gm, 500, 500);
+            Sudoku.getStage().setScene(sc);
+        }
+        );
+        hints.getChildren().addAll(hint, reset, back);
+        //...............................................................
+
     }
 }
 
 //-----------------------------------------------------------------
-
 public class Sudoku extends Application {
-    
+
+    private static Stage theStage;
+
+    public static Stage getStage() {
+        return theStage;
+    }
+
     @Override
     public void start(Stage primaryStage) {
 
+        theStage = primaryStage;
         game gm = new game();
         Scene sc = new Scene(gm, 500, 500);
         primaryStage.setScene(sc);
@@ -383,15 +336,11 @@ public class Sudoku extends Application {
         primaryStage.sizeToScene();
         primaryStage.show();
         primaryStage.setResizable(true);
-        
     }
-    
-    
-//------------------------------------------------------------------    
 
+//------------------------------------------------------------------    
     public static void main(String[] args) {
         launch(args);
-
     }
 
 }
