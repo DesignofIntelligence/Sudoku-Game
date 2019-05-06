@@ -7,16 +7,21 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 //-----------------------------------------------------------------
 
 class game extends BorderPane {
@@ -31,7 +36,7 @@ class game extends BorderPane {
         v.setFitWidth(200);
         this.setTop(log);
         log.getChildren().add(v);
-//..............................................................
+//**************************************************************
         VBox options1 = new VBox();
         options1.setAlignment(Pos.CENTER);
         this.setCenter(options1);
@@ -47,6 +52,10 @@ class game extends BorderPane {
             game1 gm1 = new game1();
             Scene sc1 = new Scene(gm1, 500, 500);
             Sudoku.getStage().setScene(sc1);
+            //Sudoku.getMediaPlayer().stop();
+            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+            sfx.play();
+            sfx.setVolume(3);
         }
         );
 
@@ -61,6 +70,10 @@ class game extends BorderPane {
             settingss st = new settingss();
             Scene sc3 = new Scene(st, 500, 500);
             Sudoku.getStage().setScene(sc3);
+            //Sudoku.getMediaPlayer().stop();
+            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+            sfx.play();
+            sfx.setVolume(3);
         }
         );
 
@@ -72,6 +85,10 @@ class game extends BorderPane {
                 e
                 -> {
             System.out.println("exit button clicked");
+            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+            sfx.play();
+            sfx.setVolume(3);
+            Sudoku.getStage().close();
         }
         );
         options1.getChildren().addAll(play, settings, exit);
@@ -87,6 +104,8 @@ class settingss extends BorderPane {
         this.setBottom(back1);
         back1.setPadding(new Insets(0, 0, 100, 0));
         back1.setAlignment(Pos.TOP_CENTER);
+        back1.setSpacing(20);
+
         Button back = new Button("BACK");
         back.setTextFill(Color.RED);
         back.setPrefSize(200, 20);
@@ -98,9 +117,39 @@ class settingss extends BorderPane {
             game gm = new game();
             Scene sc = new Scene(gm, 500, 500);
             Sudoku.getStage().setScene(sc);
+            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+            sfx.play();
+            sfx.setVolume(3);
         }
         );
-        back1.getChildren().add(back);
+        //..............................................................
+        Button mute = new Button("MUTE");
+        mute.setTextFill(Color.RED);
+        mute.setPrefSize(200, 20);
+        mute.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
+        mute.setOnAction(
+                e
+                -> {
+            System.out.println("Mute button clicked");
+            Sudoku.getMediaPlayer().stop();
+        }
+        );
+
+        Button unmute = new Button("UNMUTE");
+        unmute.setTextFill(Color.RED);
+        unmute.setPrefSize(200, 20);
+        unmute.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
+        unmute.setOnAction(
+                e
+                -> {
+            System.out.println("Unmute button clicked");
+            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+            sfx.play();
+            sfx.setVolume(3);
+            Sudoku.getMediaPlayer().play();
+        }
+        );
+        back1.getChildren().addAll(unmute, mute, back);
     }
 }
 //-----------------------------------------------------------------
@@ -134,6 +183,9 @@ class game1 extends BorderPane {
             Scene sc2 = new Scene(gm2, 500, 500);
             Stage s = new Stage();
             Sudoku.getStage().setScene(sc2);
+            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+            sfx.play();
+            sfx.setVolume(3);
         }
         );
         Button timetrial = new Button("TIME TRIAL");
@@ -148,6 +200,9 @@ class game1 extends BorderPane {
             Scene sc2 = new Scene(gm2, 500, 500);
             Stage s = new Stage();
             Sudoku.getStage().setScene(sc2);
+            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+            sfx.play();
+            sfx.setVolume(3);
         }
         );
         Label lbl = new Label("Please Choose a Game Mode");
@@ -172,9 +227,12 @@ class game1 extends BorderPane {
             Scene sc = new Scene(gm, 500, 500);
             Stage s = new Stage();
             Sudoku.getStage().setScene(sc);
+            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+            sfx.play();
+            sfx.setVolume(3);
         }
         );
-        back1.getChildren().add(back);
+        back1.getChildren().addAll(back);
 //..............................................................        
     }
 }
@@ -208,6 +266,9 @@ class game2 extends BorderPane {
             game3 gm3 = new game3();
             Scene Sc3 = new Scene(gm3, 500, 500);
             Sudoku.getStage().setScene(Sc3);
+            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+            sfx.play();
+            sfx.setVolume(3);
         }
         );
 
@@ -222,6 +283,9 @@ class game2 extends BorderPane {
             game3 gm3 = new game3();
             Scene Sc3 = new Scene(gm3, 500, 500);
             Sudoku.getStage().setScene(Sc3);
+            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+            sfx.play();
+            sfx.setVolume(3);
         }
         );
 
@@ -236,6 +300,9 @@ class game2 extends BorderPane {
             game3 gm3 = new game3();
             Scene Sc3 = new Scene(gm3, 500, 500);
             Sudoku.getStage().setScene(Sc3);
+            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+            sfx.play();
+            sfx.setVolume(3);
         }
         );
         Label lbl = new Label("Please select the difficulty");
@@ -259,6 +326,9 @@ class game2 extends BorderPane {
             game1 gm1 = new game1();
             Scene Sc1 = new Scene(gm1, 500, 500);
             Sudoku.getStage().setScene(Sc1);
+            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+            sfx.play();
+            sfx.setVolume(3);
         }
         );
         back1.getChildren().add(back);
@@ -284,6 +354,9 @@ class game3 extends BorderPane {
                 e
                 -> {
             System.out.println("reset button clicked");
+            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+            sfx.play();
+            sfx.setVolume(3);
         }
         );
 
@@ -294,6 +367,9 @@ class game3 extends BorderPane {
         hint.setOnAction(e
                 -> {
             System.out.println("hint button clicked");
+            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+            sfx.play();
+            sfx.setVolume(3);
         }
         );
 
@@ -308,11 +384,39 @@ class game3 extends BorderPane {
             game gm = new game();
             Scene sc = new Scene(gm, 500, 500);
             Sudoku.getStage().setScene(sc);
+            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+            sfx.play();
+            sfx.setVolume(3);
         }
         );
         hints.getChildren().addAll(hint, reset, back);
-        //...............................................................
+        //******************************************************************************
+        GridPane board = new GridPane();
+        for (int row = 0; row < 9; row++) {
+            for (int column = 0; column < 9; column++) {
+               // GridPane box = new GridPane();
+               // box.setStyle("-fx-background-color: black, -fx-control-inner-background; -fx-background-insets: 0, 2; -fx-padding: 2;");
+               // for (int column = 0; column < 3; column++) {
+                 //   for (int row = 0; row < 3; row++) {
+                        TextField textField = new TextField();
+                        textField.setPrefSize(50, 50);
+                        textField.setStyle("-fx-pref-width: 0em;");
+                        textField.setStyle("-fx-background-color: black, -fx-control-inner-background; -fx-background-insets: 0, 2; -fx-padding: 2;");
+                        board.add(textField,column,row);
+                       // GridPane.setConstraints(textField, column, row);
+                       // board.getChildren().add(textField);
+                   // }
+                // }
+               // board.setVgap(10);
+               // board.setHgap(10);
+               // GridPane.setConstraints(board, row, column);
+               // board.getChildren().add(board);
 
+            }
+        }
+        board.setPadding(new Insets(10, 70, 10, 70));
+        this.setCenter(board);
+        BorderPane.setAlignment(board, Pos.CENTER);
     }
 }
 
@@ -320,9 +424,14 @@ class game3 extends BorderPane {
 public class Sudoku extends Application {
 
     private static Stage theStage;
+    private static MediaPlayer theMedia;
 
     public static Stage getStage() {
         return theStage;
+    }
+
+    public static MediaPlayer getMediaPlayer() {
+        return theMedia;
     }
 
     @Override
@@ -331,14 +440,23 @@ public class Sudoku extends Application {
         theStage = primaryStage;
         game gm = new game();
         Scene sc = new Scene(gm, 500, 500);
+        Media md = new Media(this.getClass().getResource("Genius.mp3").toString());
+        //AudioClip sfx = new AudioClip("Button.wav");
+        //Media md = new Media("file:///D:/Genius.mp3");
         primaryStage.setScene(sc);
         primaryStage.setTitle("Sudoku");
         primaryStage.sizeToScene();
         primaryStage.show();
         primaryStage.setResizable(true);
+        MediaPlayer mp = new MediaPlayer(md);
+        theMedia = mp;
+        mp.setAutoPlay(true);
+        mp.setVolume(10);
+        mp.setStartTime(Duration.seconds(8));
+
     }
 
-//------------------------------------------------------------------    
+//**************************************************************   
     public static void main(String[] args) {
         launch(args);
     }
