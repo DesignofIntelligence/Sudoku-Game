@@ -72,6 +72,7 @@ class game extends BorderPane {
                 e
                 -> {
             System.out.println("exit button clicked");
+            System.exit(0);
         }
         );
         options1.getChildren().addAll(play, settings, exit);
