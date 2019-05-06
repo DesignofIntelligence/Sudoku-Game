@@ -394,23 +394,23 @@ class game3 extends BorderPane {
         GridPane board = new GridPane();
         for (int row = 0; row < 9; row++) {
             for (int column = 0; column < 9; column++) {
-               // GridPane box = new GridPane();
-               // box.setStyle("-fx-background-color: black, -fx-control-inner-background; -fx-background-insets: 0, 2; -fx-padding: 2;");
-               // for (int column = 0; column < 3; column++) {
-                 //   for (int row = 0; row < 3; row++) {
-                        TextField textField = new TextField();
-                        textField.setPrefSize(50, 50);
-                        textField.setStyle("-fx-pref-width: 0em;");
-                        textField.setStyle("-fx-background-color: black, -fx-control-inner-background; -fx-background-insets: 0, 2; -fx-padding: 2;");
-                        board.add(textField,column,row);
-                       // GridPane.setConstraints(textField, column, row);
-                       // board.getChildren().add(textField);
-                   // }
+                // GridPane box = new GridPane();
+                // box.setStyle("-fx-background-color: black, -fx-control-inner-background; -fx-background-insets: 0, 2; -fx-padding: 2;");
+                // for (int column = 0; column < 3; column++) {
+                //   for (int row = 0; row < 3; row++) {
+                TextField textField = new TextField();
+                textField.setPrefSize(50, 50);
+                textField.setStyle("-fx-pref-width: 0em;");
+                textField.setStyle("-fx-background-color: black, -fx-control-inner-background; -fx-background-insets: 0, 2; -fx-padding: 2;");
+                board.add(textField, column, row);
+                // GridPane.setConstraints(textField, column, row);
+                // board.getChildren().add(textField);
                 // }
-               // board.setVgap(10);
-               // board.setHgap(10);
-               // GridPane.setConstraints(board, row, column);
-               // board.getChildren().add(board);
+                // }
+                // board.setVgap(10);
+                // board.setHgap(10);
+                // GridPane.setConstraints(board, row, column);
+                // board.getChildren().add(board);
 
             }
         }
@@ -420,6 +420,7 @@ class game3 extends BorderPane {
     }
 }
 
+//-----------------------------------------------------------------
 //-----------------------------------------------------------------
 public class Sudoku extends Application {
 
