@@ -1,4 +1,4 @@
-package sudoku;
+ package sudoku;
 
 import javafx.geometry.Insets;
 import javafx.application.Application;
@@ -263,8 +263,9 @@ class game2 extends BorderPane {
                 e
                 -> {
             System.out.println("easy button clicked");
-            game3 gm3 = new game3();
-            Scene Sc3 = new Scene(gm3, 500, 500);
+            Passive easygame = new Passive(10);
+            Scene Sc3 = new Scene(easygame.sp, 300, 600);
+            Sudoku.getStage().setResizable(false);
             Sudoku.getStage().setScene(Sc3);
             MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
             sfx.play();
@@ -280,8 +281,9 @@ class game2 extends BorderPane {
                 e
                 -> {
             System.out.println("medium button clicked");
-            game3 gm3 = new game3();
-            Scene Sc3 = new Scene(gm3, 500, 500);
+            Passive mediumgame = new Passive(20);
+            Scene Sc3 = new Scene(mediumgame.sp, 300, 600);
+            Sudoku.getStage().setResizable(false);
             Sudoku.getStage().setScene(Sc3);
             MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
             sfx.play();
@@ -297,8 +299,9 @@ class game2 extends BorderPane {
                 e
                 -> {
             System.out.println("hard button clicked");
-            game3 gm3 = new game3();
-            Scene Sc3 = new Scene(gm3, 500, 500);
+            Passive hardgame = new Passive(30);
+            Scene Sc3 = new Scene(hardgame.sp, 300, 600);
+            Sudoku.getStage().setResizable(false);
             Sudoku.getStage().setScene(Sc3);
             MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
             sfx.play();
