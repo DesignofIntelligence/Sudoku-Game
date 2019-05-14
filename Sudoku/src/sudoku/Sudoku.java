@@ -263,7 +263,7 @@ class game2 extends BorderPane {
                 e
                 -> {
             System.out.println("easy button clicked");
-            Passive easygame = new Passive(10);
+            Passive easygame = new Passive(10,0);
             Scene Sc3 = new Scene(easygame.sp, 300, 600);
             Sudoku.getStage().setResizable(false);
             Sudoku.getStage().setScene(Sc3);
@@ -281,7 +281,7 @@ class game2 extends BorderPane {
                 e
                 -> {
             System.out.println("medium button clicked");
-            Passive mediumgame = new Passive(20);
+            Passive mediumgame = new Passive(20,1);
             Scene Sc3 = new Scene(mediumgame.sp, 300, 600);
             Sudoku.getStage().setResizable(false);
             Sudoku.getStage().setScene(Sc3);
@@ -299,7 +299,7 @@ class game2 extends BorderPane {
                 e
                 -> {
             System.out.println("hard button clicked");
-            Passive hardgame = new Passive(30);
+            Passive hardgame = new Passive(30,2);
             Scene Sc3 = new Scene(hardgame.sp, 300, 600);
             Sudoku.getStage().setResizable(false);
             Sudoku.getStage().setScene(Sc3);
