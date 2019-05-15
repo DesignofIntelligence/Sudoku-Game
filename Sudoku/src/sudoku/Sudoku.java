@@ -29,7 +29,7 @@ class game extends BorderPane {
     public game() {
         StackPane log = new StackPane();
         log.setPadding(new Insets(100, 150, 0, 150));
-        Image logo = new Image("file:///D:/s1.jpg");
+        Image logo = new Image(this.getClass().getResource("s1.jpg").toString());
         ImageView v = new ImageView(logo);
         v.setImage(logo);
         v.setFitHeight(100);
@@ -49,8 +49,8 @@ class game extends BorderPane {
                 e
                 -> {
             System.out.println("play button clicked");
-            game1 gm1 = new game1();
-            Scene sc1 = new Scene(gm1, 500, 500);
+            game2 gm2 = new game2();
+            Scene sc1 = new Scene(gm2, 500, 500);
             Sudoku.getStage().setScene(sc1);
             //Sudoku.getMediaPlayer().stop();
             MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
@@ -100,6 +100,16 @@ class game extends BorderPane {
 class settingss extends BorderPane {
 
     public settingss() {
+        StackPane log = new StackPane();
+        log.setPadding(new Insets(100, 150, 0, 150));
+        Image logo = new Image(this.getClass().getResource("s1.jpg").toString());
+        ImageView v = new ImageView(logo);
+        v.setImage(logo);
+        v.setFitHeight(100);
+        v.setFitWidth(200);
+        this.setTop(log);
+        log.getChildren().add(v);
+//**************************************************************
         VBox back1 = new VBox();
         this.setBottom(back1);
         back1.setPadding(new Insets(0, 0, 100, 0));
@@ -149,93 +159,93 @@ class settingss extends BorderPane {
             Sudoku.getMediaPlayer().play();
         }
         );
-        back1.getChildren().addAll(unmute, mute, back);
+        back1.getChildren().addAll(mute, unmute, back);
     }
 }
 //-----------------------------------------------------------------
 
-class game1 extends BorderPane {
-
-    public game1() {
-        StackPane log = new StackPane();
-        log.setPadding(new Insets(50, 150, 0, 150));
-        Image logo = new Image("file:///D:/s1.jpg");
-        ImageView v = new ImageView(logo);
-        v.setImage(logo);
-        v.setFitHeight(100);
-        v.setFitWidth(200);
-        this.setTop(log);
-        log.getChildren().add(v);
-//..............................................................
-        VBox options2 = new VBox();
-        this.setCenter(options2);
-        options2.setSpacing(20);
-        options2.setAlignment(Pos.CENTER);
-        Button standard = new Button("STANDARD");
-        standard.setTextFill(Color.RED);
-        standard.setPrefSize(200, 20);
-        standard.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
-        standard.setOnAction(
-                e
-                -> {
-            System.out.println("standard button clicked");
-            game2 gm2 = new game2();
-            Scene sc2 = new Scene(gm2, 500, 500);
-            Stage s = new Stage();
-            Sudoku.getStage().setScene(sc2);
-            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
-            sfx.play();
-            sfx.setVolume(3);
-        }
-        );
-        Button timetrial = new Button("TIME TRIAL");
-        timetrial.setTextFill(Color.RED);
-        timetrial.setPrefSize(200, 20);
-        timetrial.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
-        timetrial.setOnAction(
-                e
-                -> {
-            System.out.println("time trial button clicked");
-            game2 gm2 = new game2();
-            Scene sc2 = new Scene(gm2, 500, 500);
-            Stage s = new Stage();
-            Sudoku.getStage().setScene(sc2);
-            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
-            sfx.play();
-            sfx.setVolume(3);
-        }
-        );
-        Label lbl = new Label("Please Choose a Game Mode");
-        lbl.setStyle("-fx-background-color:null;");
-        lbl.setTextFill(Color.BLUE);
-        lbl.setFont(Font.font("Times New Roman", FontWeight.BOLD, 25));
-        options2.getChildren().addAll(lbl, standard, timetrial);
-//..............................................................
-        VBox back1 = new VBox();
-        this.setBottom(back1);
-        back1.setPadding(new Insets(0, 0, 100, 0));
-        back1.setAlignment(Pos.TOP_CENTER);
-        Button back = new Button("BACK");
-        back.setTextFill(Color.RED);
-        back.setPrefSize(200, 20);
-        back.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
-        back.setOnAction(
-                e
-                -> {
-            System.out.println("back1 button clicked");
-            game gm = new game();
-            Scene sc = new Scene(gm, 500, 500);
-            Stage s = new Stage();
-            Sudoku.getStage().setScene(sc);
-            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
-            sfx.play();
-            sfx.setVolume(3);
-        }
-        );
-        back1.getChildren().addAll(back);
-//..............................................................        
-    }
-}
+//class game1 extends BorderPane {
+//
+//    public game1() {
+//        StackPane log = new StackPane();
+//        log.setPadding(new Insets(50, 150, 0, 150));
+//        Image logo = new Image("file:///D:/s1.jpg");
+//        ImageView v = new ImageView(logo);
+//        v.setImage(logo);
+//        v.setFitHeight(100);
+//        v.setFitWidth(200);
+//        this.setTop(log);
+//        log.getChildren().add(v);
+////..............................................................
+//        VBox options2 = new VBox();
+//        this.setCenter(options2);
+//        options2.setSpacing(20);
+//        options2.setAlignment(Pos.CENTER);
+//        Button standard = new Button("STANDARD");
+//        standard.setTextFill(Color.RED);
+//        standard.setPrefSize(200, 20);
+//        standard.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
+//        standard.setOnAction(
+//                e
+//                -> {
+//            System.out.println("standard button clicked");
+//            game2 gm2 = new game2();
+//            Scene sc2 = new Scene(gm2, 500, 500);
+//            Stage s = new Stage();
+//            Sudoku.getStage().setScene(sc2);
+//            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+//            sfx.play();
+//            sfx.setVolume(3);
+//        }
+//        );
+////        Button timetrial = new Button("TIME TRIAL");
+////        timetrial.setTextFill(Color.RED);
+////        timetrial.setPrefSize(200, 20);
+////        timetrial.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
+////        timetrial.setOnAction(
+////                e
+////                -> {
+////            System.out.println("time trial button clicked");
+////            game2 gm2 = new game2();
+////            Scene sc2 = new Scene(gm2, 500, 500);
+////            Stage s = new Stage();
+////            Sudoku.getStage().setScene(sc2);
+////            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+////            sfx.play();
+////            sfx.setVolume(3);
+////        }
+////        );
+//        Label lbl = new Label("Please Choose a Game Mode");
+//        lbl.setStyle("-fx-background-color:null;");
+//        lbl.setTextFill(Color.BLUE);
+//        lbl.setFont(Font.font("Times New Roman", FontWeight.BOLD, 25));
+//        options2.getChildren().addAll(lbl, standard);
+////..............................................................
+//        VBox back1 = new VBox();
+//        this.setBottom(back1);
+//        back1.setPadding(new Insets(0, 0, 100, 0));
+//        back1.setAlignment(Pos.TOP_CENTER);
+//        Button back = new Button("BACK");
+//        back.setTextFill(Color.RED);
+//        back.setPrefSize(200, 20);
+//        back.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
+//        back.setOnAction(
+//                e
+//                -> {
+//            System.out.println("back1 button clicked");
+//            game gm = new game();
+//            Scene sc = new Scene(gm, 500, 500);
+//            Stage s = new Stage();
+//            Sudoku.getStage().setScene(sc);
+//            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+//            sfx.play();
+//            sfx.setVolume(3);
+//        }
+//        );
+//        back1.getChildren().addAll(back);
+////..............................................................        
+//    }
+//}
 //-----------------------------------------------------------------
 
 class game2 extends BorderPane {
@@ -243,7 +253,7 @@ class game2 extends BorderPane {
     public game2() {
         StackPane log = new StackPane();
         log.setPadding(new Insets(50, 150, 0, 150));
-        Image logo = new Image("file:///D:/s1.jpg");
+        Image logo = new Image(this.getClass().getResource("s1.jpg").toString());
         ImageView v = new ImageView(logo);
         v.setImage(logo);
         v.setFitHeight(100);
@@ -264,7 +274,7 @@ class game2 extends BorderPane {
                 -> {
             System.out.println("easy button clicked");
             Passive easygame = new Passive(10,0);
-            Scene Sc3 = new Scene(easygame.sp, 300, 600);
+            Scene Sc3 = new Scene(easygame.sp, 500, 500);
             Sudoku.getStage().setResizable(false);
             Sudoku.getStage().setScene(Sc3);
             MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
@@ -282,7 +292,7 @@ class game2 extends BorderPane {
                 -> {
             System.out.println("medium button clicked");
             Passive mediumgame = new Passive(20,1);
-            Scene Sc3 = new Scene(mediumgame.sp, 300, 600);
+            Scene Sc3 = new Scene(mediumgame.sp, 500, 500);
             Sudoku.getStage().setResizable(false);
             Sudoku.getStage().setScene(Sc3);
             MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
@@ -300,7 +310,7 @@ class game2 extends BorderPane {
                 -> {
             System.out.println("hard button clicked");
             Passive hardgame = new Passive(30,2);
-            Scene Sc3 = new Scene(hardgame.sp, 300, 600);
+            Scene Sc3 = new Scene(hardgame.sp, 500, 500);
             Sudoku.getStage().setResizable(false);
             Sudoku.getStage().setScene(Sc3);
             MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
@@ -326,8 +336,8 @@ class game2 extends BorderPane {
                 e
                 -> {
             System.out.println("back2 button clicked");
-            game1 gm1 = new game1();
-            Scene Sc1 = new Scene(gm1, 500, 500);
+            game gm = new game();
+            Scene Sc1 = new Scene(gm, 500, 500);
             Sudoku.getStage().setScene(Sc1);
             MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
             sfx.play();

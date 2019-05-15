@@ -6,6 +6,7 @@
 package sudoku;
 
 import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,6 +18,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
@@ -34,6 +38,8 @@ public class Passive extends StackPane
         TextField [][] clear = new TextField[9][9];
         sp = new BorderPane();
         GridPane root = new GridPane();
+        root.setAlignment(Pos.CENTER);
+        root.setPadding(new Insets(0,100,0,0));
         root.setHgap(5);
         root.setVgap(5);
         int [][]l= new int[9][9];
@@ -70,35 +76,67 @@ public class Passive extends StackPane
         sp.setCenter(root);
         //sp.getChildren().add(root);
         Button smth = new Button ("Solve!");
+        smth.setTextFill(Color.RED);
+        smth.setPrefSize(200, 20);
+        smth.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
+        
         Button show = new Button ("Show Hint");
+        show.setTextFill(Color.RED);
+        show.setPrefSize(200, 20);
+        show.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
+        
         Button remove = new Button ("Remove Hint");
+        remove.setTextFill(Color.RED);
+        remove.setPrefSize(200, 20);
+        remove.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
+        
         Button next = new Button ("Next Level");
+        next.setTextFill(Color.RED);
+        next.setPrefSize(200, 20);
+        next.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
+        
         Button back = new Button ("Back");
+        back.setTextFill(Color.RED);
+        back.setPrefSize(200, 20);
+        back.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
+        
         next.setOnAction((ActionEvent e) ->
         {
+            System.out.println("next is clicked");
+            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+            sfx.play();
+            sfx.setVolume(3);
             if (level == 0){Passive easygame = new Passive(10,0);
-            Scene Sc3= new Scene(easygame.sp, 300, 600);
+            Scene Sc3= new Scene(easygame.sp, 500, 500);
             Sudoku.getStage().setResizable(false);
             Sudoku.getStage().setScene(Sc3);}
             if (level ==1){Passive mediumgame = new Passive(20,1);
-            Scene Sc3 = new Scene(mediumgame.sp, 300, 600);
+            Scene Sc3 = new Scene(mediumgame.sp, 500, 500);
             Sudoku.getStage().setResizable(false);
             Sudoku.getStage().setScene(Sc3);}
             if (level ==2){Passive hardgame = new Passive(30,2);
-            Scene Sc3 = new Scene(hardgame.sp, 300, 600);
+            Scene Sc3 = new Scene(hardgame.sp, 500, 500);
             Sudoku.getStage().setResizable(false);
             Sudoku.getStage().setScene(Sc3);
             }
         });
         back.setOnAction((ActionEvent e) -> 
         {
-             game2 gm2 = new game2();
+            System.out.println("Back button is clicked");
+            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+            sfx.play();
+            sfx.setVolume(3);
+            game2 gm2 = new game2();
             Scene sc2 = new Scene(gm2, 500, 500);
             Stage s = new Stage();
             Sudoku.getStage().setScene(sc2);
         });
         show.setOnAction((ActionEvent e) -> 
         {
+            System.out.println("Show button is clicked");
+            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+            sfx.play();
+            sfx.setVolume(3);
                for(int i=0; i < 9; i++)
                {
                    for(int j=0; j<9; j++)
@@ -115,6 +153,10 @@ public class Passive extends StackPane
         //----------------------------------
         remove.setOnAction((ActionEvent e) -> 
         {
+            System.out.println("remove button is clicked");
+            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+            sfx.play();
+            sfx.setVolume(3);
             for(int i=0; i < 9; i++)
                {
                    for(int j=0; j<9; j++)
@@ -130,6 +172,10 @@ public class Passive extends StackPane
         );
         smth.setLayoutX(1);
         smth.setOnAction((ActionEvent e) -> {
+            System.out.println("solve button is clicked");
+            MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
+            sfx.play();
+            sfx.setVolume(3);
         int hi=0;
         //System.out.println("Check Fired");
         for(int i=0; i < 9 ; i++)
@@ -165,6 +211,7 @@ public class Passive extends StackPane
         VBox buttons = new VBox (10, smth,show,remove, next, back);
         BorderPane.setAlignment(buttons, Pos.BOTTOM_CENTER);
         sp.setBottom(buttons);
+        sp.setPadding(new Insets(0,0,0,150));
         //sp.getChildren().add(buttons);
         Line at = new Line(5, 0, 5, 200);
         
