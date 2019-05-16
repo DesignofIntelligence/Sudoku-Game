@@ -90,6 +90,11 @@ public class Passive extends StackPane
         remove.setPrefSize(200, 20);
         remove.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
         
+        Button reset = new Button ("Reset");
+        reset.setTextFill(Color.RED);
+        reset.setPrefSize(200,20);
+        reset.setStyle("-fx-border-color:orange;" + "-fx-background-color:null;" + "-fx-border-radius: 10;");
+        
         Button next = new Button ("Next Level");
         next.setTextFill(Color.RED);
         next.setPrefSize(200, 20);
@@ -170,7 +175,18 @@ public class Passive extends StackPane
         
         
         );
-        smth.setLayoutX(1);
+        reset.setOnAction((ActionEvent e) ->
+        {
+            for(int i=0; i<9; i++)
+            {
+                for(int j=0; j<9; j++)
+                {
+                    if(clear[i][j].isEditable()==true){clear[i][j].setText("");}
+                }
+            }
+        
+        } );
+        //smth.setLayoutX(1);
         smth.setOnAction((ActionEvent e) -> {
             System.out.println("solve button is clicked");
             MediaPlayer sfx = new MediaPlayer(new Media(this.getClass().getResource("Button.wav").toString()));
@@ -208,7 +224,7 @@ public class Passive extends StackPane
 });}
         
         });
-        VBox buttons = new VBox (10, smth,show,remove, next, back);
+        VBox buttons = new VBox (10, smth,show,remove, reset, next, back);
         BorderPane.setAlignment(buttons, Pos.BOTTOM_CENTER);
         sp.setBottom(buttons);
         sp.setPadding(new Insets(0,0,0,150));
