@@ -37,9 +37,11 @@ public class Passive extends StackPane {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 btn[i][j] = new TextField("" + l[i][j]);
-
+                btn[i][j].setMaxSize(50, 50);
                 root.add(btn[i][j], i, j);
                 clear[i][j] = new TextField(btn[i][j].getText());
+                clear[i][j].setMaxSize(50, 50);
+                
                 boolean t = false;
                 root.add(clear[i][j], i, j);
                 if ((int) (Math.random() * 10) == 1 || (int) (Math.random() * 10) == 2 || (int) (Math.random() * 10) == 3 || (int) (Math.random() * 10) == 4) {
@@ -59,8 +61,9 @@ public class Passive extends StackPane {
             }
 
         }
-        root.setPrefSize(50, 50);
-        root.setPadding(new Insets(0, 25, 0, 25));
+        root.setPrefSize(100, 50);
+        root.setMaxSize(350, 350);
+        root.setPadding(new Insets(0, 50, 0, 25));
         sp.setCenter(root);
 //*****************************************************************************************************************************************        
         Image che = new Image(this.getClass().getResource("check.png").toString());
